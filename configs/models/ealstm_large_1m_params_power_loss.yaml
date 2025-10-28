@@ -1,0 +1,73 @@
+data:
+  base_path: ../CARAVAN_TRANSFORMED_eval
+  gauge_ids_file: configs/basin_ids_files/pca_combined_cluster2_n9_madagascar_mozambique_similar_basins_20251016.txt
+  pipeline_path: ../CARAVAN_TRANSFORMED_eval/ts_pipeline.joblib
+features:
+  forcing:
+    - temperature_2m_max
+    - temperature_2m_min
+    - potential_evaporation_sum_FAO_PENMAN_MONTEITH
+    - potential_evaporation_sum_ERA5_LAND
+    - temperature_2m_mean
+    - total_precipitation_sum
+  static:
+    - p_mean
+    - area
+    - ele_mt_sav
+    - high_prec_dur
+    - frac_snow
+    - high_prec_freq
+    - slp_dg_sav
+    - cly_pc_sav
+    - aridity_ERA5_LAND
+    - aridity_FAO_PM
+    - low_prec_dur
+    - gauge_lat
+    - snd_pc_sav
+    - pet_mean_ERA5_LAND
+    - gauge_lon
+    - slt_pc_sav
+    - low_prec_freq
+    - glc_cl_smj
+    - seasonality_ERA5_LAND
+    - cmi_ix_syr
+    - rdd_mk_sav
+    - for_pc_sse
+  target: streamflow
+sequence:
+  input_length: 100
+  output_length: 1
+data_preparation:
+  mode: simulation
+  is_autoregressive: false
+  include_dates: true
+model:
+  type: ealstm
+  overrides:
+    # Architecture (1,008,446 parameters)
+    hidden_size: 310
+    num_layers: 3
+    bidirectional: false
+    bias: true
+
+    # Regularization
+    dropout: 0.2
+
+    # Training
+    learning_rate: 0.0001  # 1e-4 for large model on 2.6k basins
+    scheduler_patience: 10
+    scheduler_factor: 0.5
+
+    # Loss function
+    loss_fn: "power"
+    loss_fn_kwargs:
+      alpha: 3
+
+    # Normalization
+    use_rev_in: false
+dataloader:
+  batch_size: 4096
+  num_workers: 8
+  pin_memory: true
+  persistent_workers: false
+  shuffle_train: true

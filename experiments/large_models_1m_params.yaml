@@ -1,0 +1,21 @@
+# Experiment: Large Models (~1M Parameters)
+# Training EALSTM and Mamba models with ~1M parameters each
+# Dataset: Madagascar/Mozambique similar basins
+# Input window: 100 days
+# Mode: Simulation (rainfall-runoff)
+
+models:
+  ealstm_large_1m: configs/models/ealstm_large_1m_params.yaml
+  mamba_large_1m: configs/models/mamba_large_1m_params.yaml
+  ealstm_large_1m_power: configs/models/ealstm_large_1m_params_power_loss.yaml
+  mamba_large_1m_power: configs/models/mamba_large_1m_params_power_loss.yaml
+  ealstm_large_1m_no_log: configs/models/ealstm_large_1m_params_no_log.yaml
+  mamba_large_1m_no_log: configs/models/mamba_large_1m_params_no_log.yaml
+
+trainer:
+  mode: evaluation  # Use train/val/test splits for model evaluation
+  max_epochs: 150
+  early_stopping_patience: 50  # Train for at least 50 epochs
+  accumulate_grad_batches: 4  # Effective batch size: 4096 * 4 = 16384
+  check_val_every_n_epoch: 1
+  gradient_clip_val: 1.0
