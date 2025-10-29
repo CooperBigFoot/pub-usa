@@ -1,0 +1,13 @@
+{
+  "model_name": "mamba_275k_fold_2",
+  "seed": 42,
+  "checkpoint_path": "checkpoints/training/model_name=mamba_275k_fold_2/run_2025-10-28_seed42/checkpoints/best_val_loss_0.1584.ckpt",
+  "checkpoint_val_loss": 0.1584,
+  "eval_config_path": "configs/evaluation/fold_2_eval.yaml",
+  "data_config_hash": "c5c8e71a0e172198b9314bb31f55a1037daf7268339ee8f396377a1c1fca5ffb",
+  "n_samples": 113950,
+  "n_basins": 52,
+  "output_length": 1,
+  "inverse_transform_applied": true,
+  "evaluated_at": "2025-10-29T10:01:03.951783"
+}

@@ -1,0 +1,31 @@
+{
+  "experiment_config": "configs/evaluation/fold_7_eval.yaml",
+  "eval_config": "configs/evaluation/fold_7_eval.yaml",
+  "models_requested": [
+    "ealstm_275k_fold_7",
+    "mamba_275k_fold_7"
+  ],
+  "seeds_requested": [
+    42
+  ],
+  "models_evaluated": [
+    "ealstm_275k_fold_7",
+    "mamba_275k_fold_7"
+  ],
+  "seeds_evaluated": {
+    "ealstm_275k_fold_7": [
+      42
+    ],
+    "mamba_275k_fold_7": [
+      42
+    ]
+  },
+  "checkpoint_source": "training",
+  "total_evaluations": 2,
+  "fresh_evaluations": 2,
+  "cached_evaluations": 0,
+  "skipped_evaluations": 0,
+  "started_at": "2025-10-29T10:07:07.266456",
+  "completed_at": "2025-10-29T10:09:24.226349",
+  "cli_version": "1.0.0"
+}

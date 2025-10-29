@@ -1,0 +1,13 @@
+{
+  "model_name": "ealstm_275k_fold_2",
+  "seed": 42,
+  "checkpoint_path": "checkpoints/training/model_name=ealstm_275k_fold_2/run_2025-10-28_seed42/checkpoints/best_val_loss_0.1645.ckpt",
+  "checkpoint_val_loss": 0.1645,
+  "eval_config_path": "configs/evaluation/fold_2_eval.yaml",
+  "data_config_hash": "478e3eaa341068815ea553b7af4948cb1c6ce241b28680d62338fa61df40764d",
+  "n_samples": 113950,
+  "n_basins": 52,
+  "output_length": 1,
+  "inverse_transform_applied": true,
+  "evaluated_at": "2025-10-29T09:59:59.015671"
+}
