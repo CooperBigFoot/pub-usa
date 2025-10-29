@@ -1,7 +1,7 @@
 data:
-  base_path: ../CARAVAN_TRANSFORMED_eval
-  gauge_ids_file: configs/basin_ids_files/pca_combined_cluster2_n9_madagascar_mozambique_similar_basins_20251016.txt
-  pipeline_path: ../CARAVAN_TRANSFORMED_eval/ts_pipeline.joblib
+  base_path: ../CARAVAN_TRANSFORMED_WITH_ALL_FEATURES_eval
+  gauge_ids_file: configs/basin_ids_files/train_fold_9.txt
+  pipeline_path: ../CARAVAN_TRANSFORMED_WITH_ALL_FEATURES_eval/ts_pipeline.joblib
 features:
   forcing:
     - temperature_2m_max
@@ -10,6 +10,11 @@ features:
     - potential_evaporation_sum_ERA5_LAND
     - temperature_2m_mean
     - total_precipitation_sum
+    - snow_depth_water_equivalent_mean
+    - surface_net_solar_radiation_mean
+    - surface_net_thermal_radiation_mean
+    - sin_day_of_year
+    - cos_day_of_year
   static:
     - p_mean
     - area
@@ -35,7 +40,7 @@ features:
     - for_pc_sse
   target: streamflow
 sequence:
-  input_length: 100
+  input_length: 150
   output_length: 1
 data_preparation:
   mode: simulation
@@ -44,21 +49,29 @@ data_preparation:
 model:
   type: ealstm
   overrides:
-    # Architecture (1,008,446 parameters)
-    hidden_size: 310
-    num_layers: 3
+    # Architecture (275,716 parameters - matching paper configuration)
+    hidden_size: 256
+    num_layers: 1
     bidirectional: false
     bias: true
 
-    # Regularization
-    dropout: 0.2
+    # Regularization - matching paper
+    dropout: 0.4
+
+    # Loss function - Basin NSE for equal weighting across basins
+    loss_fn: "basin_nse"
+    loss_fn_kwargs:
+      basin_stats_file: "configs/basin_stats/basin_stats_eval.json"
+      epsilon: 0.1
 
     # Training
-    learning_rate: 0.0001  # 1e-4 for large model on 2.6k basins
-    scheduler_patience: 10
-    scheduler_factor: 0.5
+    learning_rate: 0.0001
+    scheduler: "cosine_annealing"
+    scheduler_kwargs:
+      T_max: 30
+      eta_min: 1e-6
 dataloader:
-  batch_size: 4096
+  batch_size: 2048
   num_workers: 8
   pin_memory: true
   persistent_workers: false

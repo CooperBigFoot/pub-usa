@@ -1,0 +1,47 @@
+# Experiment: Small Models (~275k Parameters) - 12-Fold Cross-Validation with All Features
+# Training EALSTM and Mamba models with ~275k parameters each
+# Dataset: CARAVAN_TRANSFORMED_WITH_ALL_FEATURES_eval
+# Features: 9 meteorological forcing features + 2 cyclical + 22 static attributes
+# Input window: 150 days (reduced from 270)
+# Mode: Simulation (rainfall-runoff)
+# Loss: Basin NSE for equal weighting across catchment types
+# Scheduler: Cosine annealing (T_max=30, eta_min=1e-6)
+# Batch size: 2048 (increased from 1024)
+# Cross-validation: 12 folds (~565 train, ~51 test per fold)
+
+models:
+  # EALSTM models (275,716 parameters)
+  ealstm_275k_fold_1_all_features: configs/models/ealstm_275k_params_fold_1_all_features.yaml
+  ealstm_275k_fold_2_all_features: configs/models/ealstm_275k_params_fold_2_all_features.yaml
+  ealstm_275k_fold_3_all_features: configs/models/ealstm_275k_params_fold_3_all_features.yaml
+  ealstm_275k_fold_4_all_features: configs/models/ealstm_275k_params_fold_4_all_features.yaml
+  ealstm_275k_fold_5_all_features: configs/models/ealstm_275k_params_fold_5_all_features.yaml
+  ealstm_275k_fold_6_all_features: configs/models/ealstm_275k_params_fold_6_all_features.yaml
+  ealstm_275k_fold_7_all_features: configs/models/ealstm_275k_params_fold_7_all_features.yaml
+  ealstm_275k_fold_8_all_features: configs/models/ealstm_275k_params_fold_8_all_features.yaml
+  ealstm_275k_fold_9_all_features: configs/models/ealstm_275k_params_fold_9_all_features.yaml
+  ealstm_275k_fold_10_all_features: configs/models/ealstm_275k_params_fold_10_all_features.yaml
+  ealstm_275k_fold_11_all_features: configs/models/ealstm_275k_params_fold_11_all_features.yaml
+  ealstm_275k_fold_12_all_features: configs/models/ealstm_275k_params_fold_12_all_features.yaml
+
+  # Mamba models (275,823 parameters)
+  mamba_275k_fold_1_all_features: configs/models/mamba_275k_params_fold_1_all_features.yaml
+  mamba_275k_fold_2_all_features: configs/models/mamba_275k_params_fold_2_all_features.yaml
+  mamba_275k_fold_3_all_features: configs/models/mamba_275k_params_fold_3_all_features.yaml
+  mamba_275k_fold_4_all_features: configs/models/mamba_275k_params_fold_4_all_features.yaml
+  mamba_275k_fold_5_all_features: configs/models/mamba_275k_params_fold_5_all_features.yaml
+  mamba_275k_fold_6_all_features: configs/models/mamba_275k_params_fold_6_all_features.yaml
+  mamba_275k_fold_7_all_features: configs/models/mamba_275k_params_fold_7_all_features.yaml
+  mamba_275k_fold_8_all_features: configs/models/mamba_275k_params_fold_8_all_features.yaml
+  mamba_275k_fold_9_all_features: configs/models/mamba_275k_params_fold_9_all_features.yaml
+  mamba_275k_fold_10_all_features: configs/models/mamba_275k_params_fold_10_all_features.yaml
+  mamba_275k_fold_11_all_features: configs/models/mamba_275k_params_fold_11_all_features.yaml
+  mamba_275k_fold_12_all_features: configs/models/mamba_275k_params_fold_12_all_features.yaml
+
+trainer:
+  mode: evaluation # Use train/val/test splits for model evaluation
+  max_epochs: 150
+  early_stopping_patience: 15 # Reduced from 50
+  accumulate_grad_batches: 1 # Effective batch size: 2048 * 1 = 2048
+  check_val_every_n_epoch: 1
+  gradient_clip_val: 1.0
