@@ -1,0 +1,12 @@
+# Evaluation configuration for fold 4
+# Evaluates models trained on train_fold_4.txt against test_fold_4.txt
+
+data:
+  # Path to evaluation dataset (same as training data)
+  base_path: ../CARAVAN_TRANSFORMED_NO_LOG_eval
+
+  # Test basins for fold 4
+  gauge_ids_file: configs/basin_ids_files/test_fold_4.txt
+
+  # Pipeline path (uses same pipeline as training)
+  pipeline_path: ../CARAVAN_TRANSFORMED_NO_LOG_eval/ts_pipeline.joblib
