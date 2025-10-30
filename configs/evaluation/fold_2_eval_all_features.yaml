@@ -1,0 +1,13 @@
+# Evaluation configuration for fold 2 - All Features Experiment
+# Evaluates models trained on train_fold_2.txt against test_fold_2.txt
+# Dataset: CARAVAN_TRANSFORMED_WITH_ALL_FEATURES_eval
+
+data:
+  # Path to evaluation dataset
+  base_path: ../CARAVAN_TRANSFORMED_WITH_ALL_FEATURES_eval
+
+  # Test basins for fold 2
+  gauge_ids_file: configs/basin_ids_files/test_fold_2.txt
+
+  # Pipeline path (uses same pipeline as training)
+  pipeline_path: ../CARAVAN_TRANSFORMED_WITH_ALL_FEATURES_eval/ts_pipeline.joblib
