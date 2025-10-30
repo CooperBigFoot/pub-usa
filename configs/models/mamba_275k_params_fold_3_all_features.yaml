@@ -71,7 +71,7 @@ model:
     scheduler: "cosine_annealing"
     scheduler_kwargs:
       T_max: 30
-      eta_min: 1e-6
+      eta_min: 0.000001
 
     # Normalization
     use_rev_in: false

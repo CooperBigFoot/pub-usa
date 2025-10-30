@@ -69,7 +69,7 @@ model:
     scheduler: "cosine_annealing"
     scheduler_kwargs:
       T_max: 30
-      eta_min: 1e-6
+      eta_min: 0.000001
 dataloader:
   batch_size: 2048
   num_workers: 8
