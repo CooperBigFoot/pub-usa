@@ -1,0 +1,29 @@
+{
+  "experiment_config": "configs/evaluation/fold_1_eval_all_features.yaml",
+  "eval_config": "configs/evaluation/fold_1_eval_all_features.yaml",
+  "models_requested": [
+    "ealstm_275k_fold_1_tweaked",
+    "mamba_275k_fold_1_tweaked"
+  ],
+  "seeds_requested": null,
+  "models_evaluated": [
+    "ealstm_275k_fold_1_tweaked",
+    "mamba_275k_fold_1_tweaked"
+  ],
+  "seeds_evaluated": {
+    "ealstm_275k_fold_1_tweaked": [
+      42
+    ],
+    "mamba_275k_fold_1_tweaked": [
+      42
+    ]
+  },
+  "checkpoint_source": "training",
+  "total_evaluations": 2,
+  "fresh_evaluations": 2,
+  "cached_evaluations": 0,
+  "skipped_evaluations": 0,
+  "started_at": "2025-11-02T14:37:46.070263",
+  "completed_at": "2025-11-02T14:39:42.035486",
+  "cli_version": "1.0.0"
+}
