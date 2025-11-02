@@ -60,11 +60,11 @@ model:
     # Regularization - TWEAKED: reduced from 0.4 to 0.2
     dropout: 0.2
 
-    # Loss function - Basin NSE with TWEAKED epsilon
+    # Loss function - Basin NSE
     loss_fn: "basin_nse"
     loss_fn_kwargs:
       basin_stats_file: "configs/basin_stats/basin_stats_log1p_eval.json"
-      epsilon: 1  # TWEAKED: increased from 0.1 to 1
+      epsilon: 0.1
 
     # Training
     learning_rate: 0.0001
