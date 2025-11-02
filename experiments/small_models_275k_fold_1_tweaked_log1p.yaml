@@ -1,0 +1,28 @@
+# Experiment: Small Models (~275k Parameters) - Fold 1 with Tweaked Hyperparameters - LOG1P Dataset
+# Training EALSTM and Mamba models with ~275k parameters each
+# Dataset: CARAVAN_TRANSFORMED_ALL_FEATURES_LOG1P_eval (log1p transformed)
+# Features: 11 meteorological forcing features + 22 static attributes
+# Input window: 150 days
+# Mode: Simulation (rainfall-runoff)
+#
+# TWEAKED HYPERPARAMETERS:
+# - Basin NSE epsilon: 1 (increased from 0.1 for higher stability)
+# - Dropout: 0.2 (reduced from 0.4 for less regularization)
+# - Cosine annealing scheduler:
+#   - T_max: 150 (matches max_epochs, not 30)
+#   - eta_min: 0.00001 (1e-5 instead of 1e-6)
+
+models:
+  # EALSTM model (275,716 parameters)
+  ealstm_275k_fold_1_tweaked_log1p: configs/models/ealstm_275k_fold_1_tweaked_log1p.yaml
+
+  # Mamba model (275,823 parameters)
+  mamba_275k_fold_1_tweaked_log1p: configs/models/mamba_275k_fold_1_tweaked_log1p.yaml
+
+trainer:
+  mode: evaluation # Use train/val/test splits for model evaluation
+  max_epochs: 150
+  early_stopping_patience: 15
+  accumulate_grad_batches: 1 # Effective batch size: 2048 * 1 = 2048
+  check_val_every_n_epoch: 1
+  gradient_clip_val: 1.0

@@ -205,25 +205,25 @@ This repository contains experiments for **rainfall-runoff modeling in ungauged 
 
 ### Research Focus
 
-- **Problem**: Prediction in Ungauged Basins (PUB) - estimating streamflow where no observations exist
-- **Approach**: Deep learning models trained in simulation mode (concurrent prediction, not autoregressive)
-- **Dataset**: CARAVAN global hydrological dataset with preprocessed time series
-- **Test regions**: Madagascar/Mozambique and similar basins identified via PCA clustering
-- **Models**: EA-LSTM and Mamba architectures (~1M parameters each)
-- **Loss functions**: Comparing standard MSE, power loss, and variants with/without log transforms
+* **Problem**: Prediction in Ungauged Basins (PUB) - estimating streamflow where no observations exist
+* **Approach**: Deep learning models trained in simulation mode (concurrent prediction, not autoregressive)
+* **Dataset**: CARAVAN global hydrological dataset with preprocessed time series
+* **Test regions**: Madagascar/Mozambique and similar basins identified via PCA clustering
+* **Models**: EA-LSTM and Mamba architectures (~1M parameters each)
+* **Loss functions**: Comparing standard MSE, power loss, and variants with/without log transforms
 
 ### The `tl-` CLI Suite
 
 This project uses the **transfer-learning-publication** package, which provides four CLIs for the complete ML workflow:
 
-- **`tl-train`**: Train models from scratch with multi-seed support and automatic checkpointing
-- **`tl-finetune`**: Fine-tune pre-trained models with reduced learning rates (transfer learning)
-- **`tl-tune`**: Hyperparameter optimization using Optuna with auto-generated configs
-- **`tl-evaluate`**: Evaluate trained models on test datasets with analysis-ready parquet outputs
+* **`tl-train`**: Train models from scratch with multi-seed support and automatic checkpointing
+* **`tl-finetune`**: Fine-tune pre-trained models with reduced learning rates (transfer learning)
+* **`tl-tune`**: Hyperparameter optimization using Optuna with auto-generated configs
+* **`tl-evaluate`**: Evaluate trained models on test datasets with analysis-ready parquet outputs
 
 **Documentation:**
-- CLI guide: `/Users/nicolaslazaro/Desktop/work/transfer-learning-publication/docs/cli_guide.md`
-- Configuration guide: `/Users/nicolaslazaro/Desktop/work/transfer-learning-publication/docs/configuration_guide.md`
+* CLI guide: `/Users/nicolaslazaro/Desktop/work/transfer-learning-publication/docs/cli_guide.md`
+* Configuration guide: `/Users/nicolaslazaro/Desktop/work/transfer-learning-publication/docs/configuration_guide.md`
 
 ### Repository Structure
 
@@ -240,23 +240,23 @@ pub-usa/
 ### Current Experiments
 
 **Large Models (~1M parameters)**: Comparing EA-LSTM vs Mamba architectures
-- Input window: 100 days of meteorological forcing
-- Mode: Simulation (learns rainfall-runoff process without past streamflow)
-- Basins: Madagascar/Mozambique cluster (identified via PCA on catchment attributes)
-- Variants: Standard loss, power loss, with/without log transforms
+* Input window: 100 days of meteorological forcing
+* Mode: Simulation (learns rainfall-runoff process without past streamflow)
+* Basins: Madagascar/Mozambique cluster (identified via PCA on catchment attributes)
+* Variants: Standard loss, power loss, with/without log transforms
 
 ### Configuration Files
 
 All experiments are defined using YAML configuration files:
 
-- **Model configs** (`configs/models/*.yaml`): Define data paths, features, sequences, model architecture, and training parameters
-- **Experiment configs** (`experiments/*.yaml`): Define multi-model experiments with shared trainer settings
-- **Basin lists** (`configs/basin_ids_files/*.txt`): One gauge ID per line for basin selection
+* **Model configs** (`configs/models/*.yaml`): Define data paths, features, sequences, model architecture, and training parameters
+* **Experiment configs** (`experiments/*.yaml`): Define multi-model experiments with shared trainer settings
+* **Basin lists** (`configs/basin_ids_files/*.txt`): One gauge ID per line for basin selection
 
 **Key configuration sections:**
-- `data`: Dataset location, basin selection, preprocessing pipeline
-- `features`: Input features (forcing, static attributes), target variable
-- `sequence`: Input/output window lengths
-- `data_preparation`: Mode (simulation vs forecast), autoregressive settings
-- `model`: Architecture type and hyperparameters
-- `dataloader`: Batch size, number of workers, etc.
+* `data`: Dataset location, basin selection, preprocessing pipeline
+* `features`: Input features (forcing, static attributes), target variable
+* `sequence`: Input/output window lengths
+* `data_preparation`: Mode (simulation vs forecast), autoregressive settings
+* `model`: Architecture type and hyperparameters
+* `dataloader`: Batch size, number of workers, etc.
