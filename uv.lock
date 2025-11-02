@@ -3090,8 +3090,8 @@ wheels = [
 
 [[package]]
 name = "transfer-learning-publication"
-version = "0.1.9"
-source = { git = "https://github.com/CooperBigFoot/transfer-learning-publication.git?rev=main#0e95ef2aa580ff5838f57b717598756eac767027" }
+version = "0.1.11"
+source = { git = "https://github.com/CooperBigFoot/transfer-learning-publication.git?rev=main#7966f911004958f1e6468595badd8b8e39cd3e04" }
 dependencies = [
     { name = "click" },
     { name = "geopandas" },
