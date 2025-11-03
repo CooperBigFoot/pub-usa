@@ -1,0 +1,12 @@
+# Evaluation configuration for fold 1 (LOG1P transformed data)
+# Evaluates models trained on train_fold_1.txt against test_fold_1.txt
+
+data:
+  # Path to LOG1P evaluation dataset (must contain /test subdirectory)
+  base_path: ../CARAVAN_TRANSFORMED_ALL_FEATURES_LOG1P_eval
+
+  # Test basins for fold 1
+  gauge_ids_file: configs/basin_ids_files/test_fold_1.txt
+
+  # Pipeline path for inverse transform (matches training)
+  pipeline_path: ../CARAVAN_TRANSFORMED_ALL_FEATURES_LOG1P_eval/ts_pipeline.joblib
