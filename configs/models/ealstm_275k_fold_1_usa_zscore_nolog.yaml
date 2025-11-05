@@ -70,6 +70,8 @@ model:
     scheduler_kwargs:
       T_max: 50
       eta_min: 0.00001
+
+    use_rev_in: false
 dataloader:
   batch_size: 2048
   num_workers: 8
