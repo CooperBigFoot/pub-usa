@@ -1,0 +1,29 @@
+{
+  "experiment_config": "configs/evaluation/fold_1_eval_usa_zscore_nolog.yaml",
+  "eval_config": "configs/evaluation/fold_1_eval_usa_zscore_nolog.yaml",
+  "models_requested": [
+    "ealstm_275k_fold_1_usa_zscore_nolog_mse",
+    "mamba_275k_fold_1_usa_zscore_nolog_mse"
+  ],
+  "seeds_requested": null,
+  "models_evaluated": [
+    "ealstm_275k_fold_1_usa_zscore_nolog_mse",
+    "mamba_275k_fold_1_usa_zscore_nolog_mse"
+  ],
+  "seeds_evaluated": {
+    "ealstm_275k_fold_1_usa_zscore_nolog_mse": [
+      42
+    ],
+    "mamba_275k_fold_1_usa_zscore_nolog_mse": [
+      42
+    ]
+  },
+  "checkpoint_source": "training",
+  "total_evaluations": 2,
+  "fresh_evaluations": 2,
+  "cached_evaluations": 0,
+  "skipped_evaluations": 0,
+  "started_at": "2025-11-05T17:06:58.683080",
+  "completed_at": "2025-11-05T17:07:10.759529",
+  "cli_version": "1.0.0"
+}
