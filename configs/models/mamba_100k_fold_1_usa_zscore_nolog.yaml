@@ -1,0 +1,83 @@
+data:
+  base_path: ../camels-usa-transformed-zscore-nolog_eval
+  gauge_ids_file: configs/basin_ids_files/train_fold_1.txt
+  pipeline_path: ../camels-usa-transformed-zscore-nolog_eval/ts_pipeline.joblib
+features:
+  forcing:
+    - temperature_2m_max
+    - temperature_2m_min
+    - potential_evaporation_sum_FAO_PENMAN_MONTEITH
+    - potential_evaporation_sum_ERA5_LAND
+    - temperature_2m_mean
+    - total_precipitation_sum
+    - snow_depth_water_equivalent_mean
+    - surface_net_solar_radiation_mean
+    - surface_net_thermal_radiation_mean
+    - sin_day_of_year
+    - cos_day_of_year
+  static:
+    - p_mean
+    - area
+    - ele_mt_sav
+    - high_prec_dur
+    - frac_snow
+    - high_prec_freq
+    - slp_dg_sav
+    - cly_pc_sav
+    - aridity_ERA5_LAND
+    - aridity_FAO_PM
+    - low_prec_dur
+    - gauge_lat
+    - snd_pc_sav
+    - pet_mean_ERA5_LAND
+    - gauge_lon
+    - slt_pc_sav
+    - low_prec_freq
+    - glc_cl_smj
+    - seasonality_ERA5_LAND
+    - cmi_ix_syr
+    - rdd_mk_sav
+    - for_pc_sse
+  target: streamflow
+sequence:
+  input_length: 270
+  output_length: 1
+data_preparation:
+  mode: simulation
+  is_autoregressive: false
+  include_dates: true
+model:
+  type: mamba
+  overrides:
+    # Architecture (99,405 parameters - smaller model configuration)
+    d_model: 62
+    n_layers: 3
+    d_state: 16
+    d_conv: 4
+    expand: 2
+    decoder_hidden_size: 70
+
+    # Regularization
+    dropout: 0.2
+
+    # Loss function - Basin NSE
+    loss_fn: "basin_nse"
+    loss_fn_kwargs:
+      basin_stats_file: "configs/basin_stats/basin_stats_eval.json"
+      epsilon: 1
+
+    # Training
+    learning_rate: 0.0001
+    scheduler: "cosine_annealing"
+    scheduler_kwargs:
+      T_max: 50
+      eta_min: 0.00001
+
+    # Normalization
+    use_rev_in: false
+dataloader:
+  batch_size: 2048
+  num_workers: 8
+  pin_memory: true
+  persistent_workers: false
+  shuffle_train: true
