@@ -1,7 +1,7 @@
 data:
-  base_path: ../CARAVAN_TRANSFORMED_ALL_FEATURES_LOG1P_eval
+  base_path: ../camels-usa-transformed-zscore-nolog_eval
   gauge_ids_file: configs/basin_ids_files/train_fold_1.txt
-  pipeline_path: ../CARAVAN_TRANSFORMED_ALL_FEATURES_LOG1P_eval/ts_pipeline.joblib
+  pipeline_path: ../camels-usa-transformed-zscore-nolog_eval/ts_pipeline.joblib
 features:
   forcing:
     - temperature_2m_max
@@ -61,16 +61,15 @@ model:
     # Loss function - Basin NSE
     loss_fn: "basin_nse"
     loss_fn_kwargs:
-      basin_stats_file: "configs/basin_stats/basin_stats_log1p_eval.json"
+      basin_stats_file: "configs/basin_stats/basin_stats_camels_eval.json"
       epsilon: 0.1
 
     # Training
     learning_rate: 0.0001
-    # TWEAKED: cosine annealing with T_max matching max_epochs
     scheduler: "cosine_annealing"
     scheduler_kwargs:
-      T_max: 150  # TWEAKED: matches max_epochs instead of 30
-      eta_min: 0.00001  # TWEAKED: 1e-5 instead of 1e-6
+      T_max: 50
+      eta_min: 0.00001
 dataloader:
   batch_size: 2048
   num_workers: 8
