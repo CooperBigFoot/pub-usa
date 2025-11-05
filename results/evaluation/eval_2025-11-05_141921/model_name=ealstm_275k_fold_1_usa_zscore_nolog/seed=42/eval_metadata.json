@@ -1,0 +1,13 @@
+{
+  "model_name": "ealstm_275k_fold_1_usa_zscore_nolog",
+  "seed": 42,
+  "checkpoint_path": "checkpoints/training/model_name=ealstm_275k_fold_1_usa_zscore_nolog/run_2025-11-05_seed42/checkpoints/best_val_loss_0.4295.ckpt",
+  "checkpoint_val_loss": 0.4295,
+  "eval_config_path": "configs/evaluation/fold_1_eval_usa_zscore_nolog.yaml",
+  "data_config_hash": "f8f81d76dc37b5e80d172acfa02d6f4df2eecf60f25fd49c1a22fe8f414e654f",
+  "n_samples": 118068,
+  "n_basins": 52,
+  "output_length": 1,
+  "inverse_transform_applied": true,
+  "evaluated_at": "2025-11-05T14:19:29.530194"
+}
