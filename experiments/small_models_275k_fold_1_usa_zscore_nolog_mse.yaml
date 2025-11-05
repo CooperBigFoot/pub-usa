@@ -1,0 +1,14 @@
+models:
+  # EALSTM model (275,716 parameters)
+  ealstm_275k_fold_1_usa_zscore_nolog_mse: configs/models/ealstm_275k_fold_1_usa_zscore_nolog_mse.yaml
+
+  # Mamba model (275,823 parameters)
+  mamba_275k_fold_1_usa_zscore_nolog_mse: configs/models/mamba_275k_fold_1_usa_zscore_nolog_mse.yaml
+
+trainer:
+  mode: evaluation
+  max_epochs: 150
+  early_stopping_patience: 15
+  accumulate_grad_batches: 1
+  check_val_every_n_epoch: 1
+  gradient_clip_val: 1.0
