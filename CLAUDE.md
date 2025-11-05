@@ -222,6 +222,7 @@ This project uses the **transfer-learning-publication** package, which provides 
 * **`tl-evaluate`**: Evaluate trained models on test datasets with analysis-ready parquet outputs
 
 **Documentation:**
+
 * CLI guide: `/Users/nicolaslazaro/Desktop/work/transfer-learning-publication/docs/cli_guide.md`
 * Configuration guide: `/Users/nicolaslazaro/Desktop/work/transfer-learning-publication/docs/configuration_guide.md`
 
@@ -237,14 +238,6 @@ pub-usa/
 └── README.md               # Project documentation
 ```
 
-### Current Experiments
-
-**Large Models (~1M parameters)**: Comparing EA-LSTM vs Mamba architectures
-* Input window: 100 days of meteorological forcing
-* Mode: Simulation (learns rainfall-runoff process without past streamflow)
-* Basins: Madagascar/Mozambique cluster (identified via PCA on catchment attributes)
-* Variants: Standard loss, power loss, with/without log transforms
-
 ### Configuration Files
 
 All experiments are defined using YAML configuration files:
@@ -254,6 +247,7 @@ All experiments are defined using YAML configuration files:
 * **Basin lists** (`configs/basin_ids_files/*.txt`): One gauge ID per line for basin selection
 
 **Key configuration sections:**
+
 * `data`: Dataset location, basin selection, preprocessing pipeline
 * `features`: Input features (forcing, static attributes), target variable
 * `sequence`: Input/output window lengths
