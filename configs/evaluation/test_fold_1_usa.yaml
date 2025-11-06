@@ -1,0 +1,16 @@
+data:
+  # Path to evaluation dataset (must contain /test subdirectory)
+  base_path: ../camels-usa-transformed-zscore-nolog_eval
+
+  # Test basins - update this to your test fold or holdout basins
+  # Option 1: Use a file with test basin IDs
+  gauge_ids_file: configs/basin_ids_files/test_fold_1.txt
+
+  # Option 2: Or specify basins directly (uncomment if not using file)
+  # gauge_ids:
+  #   - "01013500"
+  #   - "01030500"
+
+  # Pipeline is already specified in model configs, so this inherits automatically
+  # But you can override here if needed:
+  # pipeline_path: ../camels-usa-transformed-zscore-nolog_eval/ts_pipeline.joblib
