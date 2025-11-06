@@ -11,7 +11,7 @@ models:
 
 trainer:
   mode: evaluation
-  max_epochs: 100
+  max_epochs: 50
   early_stopping_patience: 15
   accumulate_grad_batches: 1
   check_val_every_n_epoch: 1
