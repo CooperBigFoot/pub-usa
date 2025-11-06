@@ -1,0 +1,13 @@
+{
+  "model_name": "mamba_100k_fold_1_usa_zscore_nolog",
+  "seed": 42,
+  "checkpoint_path": "checkpoints/training/model_name=mamba_100k_fold_1_usa_zscore_nolog/run_2025-11-05_seed42/checkpoints/best_val_loss_0.0896.ckpt",
+  "checkpoint_val_loss": 0.0896,
+  "eval_config_path": "configs/evaluation/test_fold_1_usa.yaml",
+  "data_config_hash": "62f1418884a2573530af578d6bec6b79aa9a610657fd497106e85109abcc40fc",
+  "n_samples": 111828,
+  "n_basins": 52,
+  "output_length": 1,
+  "inverse_transform_applied": true,
+  "evaluated_at": "2025-11-06T08:26:27.630348"
+}
