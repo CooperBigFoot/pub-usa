@@ -1,0 +1,49 @@
+{
+  "experiment_config": "configs/evaluation/fold_1_eval_usa_zscore_log1p.yaml",
+  "eval_config": "configs/evaluation/fold_1_eval_usa_zscore_log1p.yaml",
+  "models_requested": [
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha25",
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha30",
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha35",
+    "mamba_100k_fold_1_usa_zscore_log1p_power_alpha25",
+    "mamba_100k_fold_1_usa_zscore_log1p_power_alpha30",
+    "mamba_100k_fold_1_usa_zscore_log1p_power_alpha35"
+  ],
+  "seeds_requested": null,
+  "models_evaluated": [
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha25",
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha30",
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha35",
+    "mamba_100k_fold_1_usa_zscore_log1p_power_alpha25",
+    "mamba_100k_fold_1_usa_zscore_log1p_power_alpha30",
+    "mamba_100k_fold_1_usa_zscore_log1p_power_alpha35"
+  ],
+  "seeds_evaluated": {
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha25": [
+      42
+    ],
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha30": [
+      42
+    ],
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha35": [
+      42
+    ],
+    "mamba_100k_fold_1_usa_zscore_log1p_power_alpha25": [
+      42
+    ],
+    "mamba_100k_fold_1_usa_zscore_log1p_power_alpha30": [
+      42
+    ],
+    "mamba_100k_fold_1_usa_zscore_log1p_power_alpha35": [
+      42
+    ]
+  },
+  "checkpoint_source": "training",
+  "total_evaluations": 6,
+  "fresh_evaluations": 6,
+  "cached_evaluations": 0,
+  "skipped_evaluations": 0,
+  "started_at": "2025-11-06T18:44:29.387638",
+  "completed_at": "2025-11-06T18:45:01.685110",
+  "cli_version": "1.0.0"
+}
