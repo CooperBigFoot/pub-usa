@@ -1,0 +1,18 @@
+models:
+  # EALSTM models with different power loss alpha values (100,954 parameters)
+  ealstm_100k_fold_1_usa_zscore_log1p_power_alpha25: configs/models/ealstm_100k_fold_1_usa_zscore_log1p_power_alpha25.yaml
+  ealstm_100k_fold_1_usa_zscore_log1p_power_alpha30: configs/models/ealstm_100k_fold_1_usa_zscore_log1p_power_alpha30.yaml
+  ealstm_100k_fold_1_usa_zscore_log1p_power_alpha35: configs/models/ealstm_100k_fold_1_usa_zscore_log1p_power_alpha35.yaml
+
+  # Mamba models with different power loss alpha values (99,405 parameters)
+  mamba_100k_fold_1_usa_zscore_log1p_power_alpha25: configs/models/mamba_100k_fold_1_usa_zscore_log1p_power_alpha25.yaml
+  mamba_100k_fold_1_usa_zscore_log1p_power_alpha30: configs/models/mamba_100k_fold_1_usa_zscore_log1p_power_alpha30.yaml
+  mamba_100k_fold_1_usa_zscore_log1p_power_alpha35: configs/models/mamba_100k_fold_1_usa_zscore_log1p_power_alpha35.yaml
+
+trainer:
+  mode: evaluation
+  max_epochs: 100
+  early_stopping_patience: 15
+  accumulate_grad_batches: 1
+  check_val_every_n_epoch: 1
+  gradient_clip_val: 1.0

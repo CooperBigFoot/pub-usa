@@ -1,0 +1,13 @@
+# Evaluation configuration for fold 1 - Power Loss Alpha Comparison
+# Evaluates models trained on train_fold_1.txt against test_fold_1.txt
+# Dataset: camels-usa-transformed-zscore-log1p_eval (with log1p transform)
+
+data:
+  # Path to evaluation dataset
+  base_path: ../camels-usa-transformed-zscore-log1p_eval
+
+  # Test basins for fold 1
+  gauge_ids_file: configs/basin_ids_files/test_fold_1.txt
+
+  # Pipeline path (uses same pipeline as training)
+  pipeline_path: ../camels-usa-transformed-zscore-log1p_eval/ts_pipeline.joblib
