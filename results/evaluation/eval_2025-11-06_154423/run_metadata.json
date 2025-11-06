@@ -1,0 +1,34 @@
+{
+  "experiment_config": "configs/evaluation/fold_1_eval_usa_zscore_log1p.yaml",
+  "eval_config": "configs/evaluation/fold_1_eval_usa_zscore_log1p.yaml",
+  "models_requested": [
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha25",
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha30",
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha35"
+  ],
+  "seeds_requested": null,
+  "models_evaluated": [
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha25",
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha30",
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha35"
+  ],
+  "seeds_evaluated": {
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha25": [
+      42
+    ],
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha30": [
+      42
+    ],
+    "ealstm_100k_fold_1_usa_zscore_log1p_power_alpha35": [
+      42
+    ]
+  },
+  "checkpoint_source": "training",
+  "total_evaluations": 3,
+  "fresh_evaluations": 3,
+  "cached_evaluations": 0,
+  "skipped_evaluations": 0,
+  "started_at": "2025-11-06T15:44:23.759428",
+  "completed_at": "2025-11-06T15:45:04.479103",
+  "cli_version": "1.0.0"
+}
