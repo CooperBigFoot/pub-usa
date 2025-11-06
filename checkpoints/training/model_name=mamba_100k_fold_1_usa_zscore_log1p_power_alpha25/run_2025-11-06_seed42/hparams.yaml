@@ -1,0 +1,25 @@
+d_conv: 4
+d_model: 62
+d_state: 16
+decoder_hidden_size: 70
+dropout: 0.2
+expand: 2
+future_input_size: 0
+group_identifier: gauge_id
+input_len: 270
+input_size: 11
+learning_rate: 0.0001
+loss_fn: power
+loss_fn_kwargs:
+  alpha: 2.5
+n_layers: 3
+output_len: 1
+scheduler: cosine_annealing
+scheduler_factor: 0.5
+scheduler_kwargs:
+  T_max: 50
+  eta_min: 1.0e-05
+scheduler_patience: 5
+static_size: 22
+training_mode: evaluation
+use_rev_in: false
